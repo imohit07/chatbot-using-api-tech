@@ -4,8 +4,7 @@ let chatContainer=document.querySelector(".chat-container")
 let imagebtn=document.querySelector("#image")
 let image=document.querySelector("#image image")
 let imageinput=document.querySelector("#image input")
-const Api_Url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBFb2eZQvIZxFZDcMxCHMs4DoU18FjYUEw";
-let user={
+const Api_Url = "AIzaSyDSHTQJqC5yZkFPan0nOLIP5PnGew4wpnk";
     message:null,
     file:{
         mime_type:null,
@@ -96,4 +95,5 @@ imageinput.addEventListener("change",()=>{
 }) 
 imagebtn.addEventListener("click",()=>{
     imagebtn.querySelector("input").click()
+
 })
