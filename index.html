@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ai Chat Bot</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Powered by Gemini</title>
+    <meta name="description" content="An intelligent AI chatbot powered by Google's Gemini AI">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="chat-container">
-<div class="ai-chat-box">
-<img src="ai.png" alt="" id="aiImage" width="10%">
-<div class="ai-chat-area">
-Hello! How can I help you today?
-</div>
-</div>
-</div>
-<div class="prompt-area">
-<input type="text" id="prompt" placeholder="Message..." style = "color:black">
-<button id="image"><img src="image.svg" alt="">
-<input type="file" accept="images/*" hidden style = "color:black"></button>
-<button id="submit"><img src="up.svg" alt=""></button>
-</div>
-<script src="script.js"></script>
+    <div class="chat-container" id="chatContainer">
+        <div class="ai-chat-box">
+            <img src="ai.png" alt="AI Assistant" id="aiImage" width="10%">
+            <div class="ai-chat-area">
+                Hello! I'm your AI assistant powered by Google Gemini. How can I help you today?
+            </div>
+        </div>
+    </div>
+    
+    <div class="prompt-area">
+        <input type="text" id="prompt" placeholder="Type your message..." maxlength="1000" autocomplete="off">
+        <button id="image" type="button" title="Upload Image">
+            <img src="image.svg" alt="Upload Image">
+            <input type="file" accept="image/*" hidden>
+        </button>
+        <button id="submit" type="button" title="Send Message">
+            <img src="up.svg" alt="Send">
+        </button>
+    </div>
+    
+    <script src="script.js"></script>
 </body>    
 </html> 
       

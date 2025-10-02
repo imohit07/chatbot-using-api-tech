@@ -2,43 +2,58 @@ let prompt=document.querySelector("#prompt")
 let submitbtn=document.querySelector("#submit")
 let chatContainer=document.querySelector(".chat-container")
 let imagebtn=document.querySelector("#image")
-let image=document.querySelector("#image image")
+let image=document.querySelector("#image img")
 let imageinput=document.querySelector("#image input")
-const Api_Url = "AIzaSyDSHTQJqC5yZkFPan0nOLIP5PnGew4wpnk";
-    message:null,
-    file:{
-        mime_type:null,
+
+// Use Vercel serverless function for API calls
+const Api_Url = "/api/chat";
+
+// User object to store message and file data
+let user = {
+    message: null,
+    file: {
+        mime_type: null,
         data: null
     }
 }
 async function generateResponse(aiChatBox) {
-let text=aiChatBox.querySelector(".ai-chat-area")
-    let RequestOption={
-        method:"POST",
-        headers:{'Content-Type' : 'application/json'},
-        body:JSON.stringify({
-            "contents":[
-                {"parts":[{text:user.message},(user.file.data?[{inline_data:user.file}]:[])
-
-                ]
-            }]
-        })
+    let text = aiChatBox.querySelector(".ai-chat-area")
+    
+    let requestBody = {
+        message: user.message,
+        imageData: user.file.data ? user.file : null
     }
-    try{
-        let response= await fetch(Api_Url,RequestOption)
-        let data=await response.json()
-       let apiResponse=data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim()
-       text.innerHTML=apiResponse    
+    
+    let requestOptions = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
     }
-    catch(error){
-        console.log(error);
+    
+    try {
+        let response = await fetch(Api_Url, requestOptions)
+        let data = await response.json()
         
+        if (data.success && data.response) {
+            text.innerHTML = data.response
+        } else {
+            text.innerHTML = "Sorry, I couldn't process your request. " + (data.error || "Please try again.")
+        }
     }
-    finally{
-        chatContainer.scrollTo({top:chatContainer.scrollHeight,behavior:"smooth"})
-        image.src=`image.svg`
+    catch(error) {
+        console.error('Error:', error);
+        text.innerHTML = "Sorry, there was an error connecting to the AI service. Please try again."
+    }
+    finally {
+        chatContainer.scrollTo({top: chatContainer.scrollHeight, behavior: "smooth"})
+        image.src = `image.svg`
         image.classList.remove("choose")
-        user.file={}
+        user.file = {
+            mime_type: null,
+            data: null
+        }
     }
 }
 function createChatBox(html,classes){
