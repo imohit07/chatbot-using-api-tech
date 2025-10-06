@@ -4,7 +4,7 @@ A modern, responsive AI chatbot built with HTML, CSS, and JavaScript, powered by
 
 ## 🚀 Live Demo
 
-**Deployed on Vercel**: [chatbot-using-api-tech.vercel.app](https://chatbot-using-api-tech.vercel.app)
+**Deployed on github**: [chatbot-using-api-tech.vercel.app](https://chatbot-using-api-tech.vercel.app)
 
 ## ✨ Features
 
@@ -19,7 +19,7 @@ A modern, responsive AI chatbot built with HTML, CSS, and JavaScript, powered by
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **AI**: Google Gemini 1.5 Flash API
-- **Deployment**: Vercel (with serverless functions)
+- **Deployment**: github (with serverless functions)
 - **Styling**: Custom CSS with responsive design
 
 ## 📁 Project Structure
@@ -31,8 +31,6 @@ chatbot-using-api-tech/
 ├── script.js           # Frontend JavaScript logic
 ├── api/
 │   └── chat.js         # Vercel serverless function
-├── vercel.json         # Vercel configuration
-├── env.example         # Environment variables template
 └── assets/
     ├── ai.png          # AI avatar
     ├── user.png        # User avatar
@@ -62,22 +60,6 @@ chatbot-using-api-tech/
      GEMINI_API_KEY=your_actual_api_key_here
      ```
 
-4. **Run locally**:
-   - Install Vercel CLI: `npm i -g vercel`
-   - Run: `vercel dev`
-   - Open `http://localhost:3000`
-
-### Deploy to Vercel
-
-1. **Fork this repository** to your GitHub account
-
-2. **Connect to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Import your forked repository
-   - Add environment variable: `GEMINI_API_KEY` with your API key
-
-3. **Deploy**: Vercel will automatically build and deploy your app
-
 ## 🔧 Configuration
 
 ### Environment Variables
@@ -87,14 +69,6 @@ Set these in your Vercel dashboard or `.env` file:
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `GEMINI_API_KEY` | Your Google Gemini API key | Yes |
-
-### Vercel Configuration
-
-The `vercel.json` file is pre-configured for optimal deployment:
-
-- Static file serving for frontend assets
-- Serverless function for API calls
-- Proper routing configuration
 
 ## 🎨 Features in Detail
 
@@ -153,10 +127,6 @@ The `vercel.json` file is pre-configured for optimal deployment:
 4. Push to branch: `git push origin feature-name`
 5. Submit a pull request
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 👨‍💻 Author
 
 **Mohit Khandelwal**
@@ -166,7 +136,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙏 Acknowledgments
 
 - Google for the amazing Gemini AI API
-- Vercel for seamless deployment platform
+- github for seamless deployment platform
 - The open-source community for inspiration
 
 ---
