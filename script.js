@@ -2,11 +2,10 @@ let prompt = document.querySelector("#prompt");
 let submitbtn = document.querySelector("#submit");
 let chatContainer = document.querySelector(".chat-container");
 let imagebtn = document.querySelector("#image");
-let imagePreview = document.querySelector("#image img"); // Changed variable name for clarity
+let imagePreview = document.querySelector("#image img"); 
 let imageinput = document.querySelector("#image input");
 
-// WARNING: Do NOT expose your API key in client-side code in a real application.
-// This is for demonstration purposes only.
+
 const Api_Url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyDSHTQJqC5yZkFPan0nOLIP5PnGew4wpnk";
 let user = {
     message: null,
@@ -19,7 +18,6 @@ let user = {
 async function generateResponse(aiChatBox) {
     let textElement = aiChatBox.querySelector(".ai-chat-area");
 
-    // --- FIX 1: Correctly build the 'parts' array ---
     const parts = [{
         text: user.message
     }];
@@ -52,10 +50,8 @@ async function generateResponse(aiChatBox) {
         }
         const data = await response.json();
 
-        // --- FIX 2: Safer response parsing ---
         if (data.candidates && data.candidates.length > 0) {
             const apiResponse = data.candidates[0].content.parts[0].text;
-            // The replace for markdown bolding is fine, but let's make the text display cleaner
             textElement.innerHTML = apiResponse.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
         } else {
              textElement.textContent = "Sorry, I couldn't get a response. Please try again.";
@@ -66,7 +62,6 @@ async function generateResponse(aiChatBox) {
         textElement.textContent = "Oops! Something went wrong. Please check the console for details."; // Display error to user
     } finally {
         chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: "smooth" });
-        // --- FIX 3: Reset UI and user object state correctly ---
         imagePreview.src = `image.svg`;
         imagePreview.classList.remove("choose");
         user.message = null;
@@ -84,7 +79,7 @@ function createChatBox(html, classes) {
 
 function handlechatResponse() {
     const userMessage = prompt.value.trim();
-    if (!userMessage && !user.file.data) return; // Don't send empty messages
+    if (!userMessage && !user.file.data) return;
 
     user.message = userMessage;
 
@@ -113,7 +108,7 @@ function handlechatResponse() {
 
 prompt.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault(); // Prevents new line on Enter
+        e.preventDefault();
         handlechatResponse();
     }
 });
@@ -143,3 +138,4 @@ imageinput.addEventListener("change", () => {
 imagebtn.addEventListener("click", () => {
     imagebtn.querySelector("input").click();
 });
+
