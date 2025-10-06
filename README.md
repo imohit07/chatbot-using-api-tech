@@ -4,7 +4,7 @@ A modern, responsive AI chatbot built with HTML, CSS, and JavaScript, powered by
 
 ## 🚀 Live Demo
 
-**Deployed on github**: [chatbot-using-api-tech.vercel.app]((https://imohit07.github.io/chatbot-using-api-tech/))
+**Deployed on github**:(https://imohit07.github.io/chatbot-using-api-tech/)
 
 ## ✨ Features
 
