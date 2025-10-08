@@ -38,7 +38,7 @@ async function generateResponse(aiChatBox) {
         },
         body: JSON.stringify({
             "contents": [{
-                "parts": parts // Use the correctly constructed parts array
+                "parts": parts
             }]
         })
     };
@@ -66,7 +66,7 @@ async function generateResponse(aiChatBox) {
         imagePreview.classList.remove("choose");
         user.message = null;
         user.file = { mime_type: null, data: null };
-        imageinput.value = ""; // Clear the file input
+        imageinput.value = ""; 
     }
 }
 
@@ -138,4 +138,5 @@ imageinput.addEventListener("change", () => {
 imagebtn.addEventListener("click", () => {
     imagebtn.querySelector("input").click();
 });
+
 
